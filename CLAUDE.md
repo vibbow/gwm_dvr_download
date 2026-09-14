@@ -77,8 +77,12 @@ tar czf - --exclude=.gradle --exclude=build --exclude=.idea --exclude=gradle.pro
 
 - 根目录只放 Gradle 工程文件、`README.md`、`CLAUDE.md`、`.gitignore`、`.gitattributes`，**不要把其他文件放在根目录**
 - `app/`：Android 应用源码；`tools/`：电脑端 Python 脚本；`scripts/`：构建脚本
-- `dist/`：构建产物（APK、`mapping/`）
-- `docs/`：参考资料。`packet.txt` 是原车 App 的抓包，`wechat.png` 是微信名片原图（App 里用的是 `app/src/main/res/drawable-nodpi/wechat_qr.png`）
+- `site/`：静态发布页源码（`index.html` 单文件、内联样式、无外部依赖；`icon.svg` 与启动图标同图；`screenshot.jpg` 是 App 主界面截图，由 `docs/screenshot.jpg` 缩放到 630×1400）。页面读取同目录的 `version.json` 显示版本、大小、日期和 APK 的 SHA-256；读不到时（例如直接双击本地打开）显示默认内容
+- 发布页的下载按钮**固定指向 `https://static.vsean.net/software/GWM-DVR-Download.apk`**，发布新版时要把 `dist/GWM-DVR-Download.apk` 上传到这个地址
+- 发布页结构：首屏（图标、标题、下载卡片 + 手机外框截图，宽屏左右并排、窄屏上下排列）→ 为什么用它 → 使用方法 → 安装包校验 → 页脚。**不要加"常见问题"**（用户明确不要）
+- `dist/`：构建产物（APK、`mapping/`、`site/`）。`build.ps1` 每次会重新生成 `dist/site/` = `site/` 页面 + `version.json`（不含 APK），整个目录可直接部署到任意静态托管
+- 发布页文案原则：页脚必须保留"非长城汽车官方应用"声明；不要写无法保证的承诺（例如"不会断开原 Wi-Fi"——部分手机会断开；"不收集任何数据"——ML Kit 可能上报匿名指标）
+- `docs/`：参考资料。`packet.txt` 是原车 App 的抓包，`wechat.png` 是微信名片原图（App 里用的是 `app/src/main/res/drawable-nodpi/wechat_qr.png`），`screenshot.jpg` 是 App 截图原图（1260×2800）
 - `signing/`：签名密钥（见下文）
 
 ## 签名（非常重要）
