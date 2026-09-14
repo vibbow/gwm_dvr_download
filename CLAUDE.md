@@ -10,7 +10,7 @@
 - 技术栈：Kotlin、AGP 9.4.0（内置 Kotlin，不要再加 `org.jetbrains.kotlin.android` 插件）、Gradle 9.7.1、Java 25
 - UI：Material 3 + View/XML（没有用 Compose），主色 `#1A56DB`（与图标一致），支持深色模式
 - 扫码：CameraX + ML Kit barcode-scanning（模型打包在 APK 内，不依赖 GMS）。之前的 zxing 横屏且识别不了高密度码，已弃用
-- Git 仓库（分支 `main`），计划推送到 GitHub 私有仓库。`.gitignore` 排除了 `signing/`（密钥和密码绝不入库，需另行备份）、`dist/`、`local.properties`、构建目录和视频文件；`.gitattributes` 保证 `gradlew` 是 LF 换行
+- Git 仓库（分支 `main`），远程是 GitHub 私有仓库 `git@github.com:vibbow/gwm_dvr_download.git`（本机 SSH 密钥已能登录 GitHub）。`.gitignore` 排除了 `signing/`（密钥和密码绝不入库，需另行备份）、`dist/`、`local.properties`、构建目录和视频文件；`.gitattributes` 保证 `gradlew` 是 LF 换行
 
 ## 版本号
 
