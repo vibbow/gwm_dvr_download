@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    一键构建 release APK：运行单元测试、编译、校验签名，把 APK 和 mapping 归档到 dist/，并生成发布页 dist/site/。
+    一键构建 release APK：运行单元测试、编译、校验签名，并把 APK 和 mapping 归档到 dist/。
 
 .PARAMETER SkipTests
     跳过单元测试。
@@ -91,23 +91,6 @@ Copy-Item $apk $distApk -Force
 $mapping = 'app\build\outputs\mapping\release\mapping.txt'
 if (Test-Path $mapping) { Copy-Item $mapping "dist\mapping\mapping-$versionCode.txt" -Force }
 
-# ---------- 发布页 ----------
-# 把 site/ 的页面和 version.json 组装到 dist/site/，整个目录可直接部署到任意静态托管。
-# 页面上的下载按钮固定指向 https://static.vsean.net/software/GWM-DVR-Download.apk，
-# 所以发布时要把 dist\GWM-DVR-Download.apk 上传到那个地址，version.json 里的大小和 SHA-256 才对得上。
-Write-Step '生成发布页 dist\site\'
-$siteDir = 'dist\site'
-if (Test-Path $siteDir) { Remove-Item -Recurse -Force $siteDir }
-Copy-Item -Recurse 'site' $siteDir
-$apkItem = Get-Item $distApk
-[ordered]@{
-    versionName = $versionName
-    versionCode = [int]$versionCode
-    size        = $apkItem.Length
-    sha256      = (Get-FileHash $apkItem.FullName -Algorithm SHA256).Hash.ToLower()
-    buildDate   = (Get-Date).ToString('yyyy-MM-dd')
-} | ConvertTo-Json | Out-File -Encoding utf8NoBOM "$siteDir\version.json"
-
 $testSummary = '已跳过'
 if (-not $SkipTests) {
     $total = 0; $failed = 0
@@ -127,5 +110,3 @@ Write-Host "  签名      OK ($($certSha256.Substring(0, 16))...)"
 Write-Host "  单元测试  $testSummary"
 Write-Host "  耗时      $([math]::Round($sw.Elapsed.TotalSeconds)) 秒"
 Write-Host "  APK       $root\$distApk ($([math]::Round((Get-Item $distApk).Length / 1MB, 2)) MB)"
-Write-Host "  发布页    $root\$siteDir\（整个目录上传到静态托管）"
-Write-Host "  发布时    把 APK 上传到 https://static.vsean.net/software/GWM-DVR-Download.apk" -ForegroundColor Yellow
