@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#1A56DB</color>
+
+    <!-- 与图标同色系的 Material 3 配色（浅色） -->
+    <color name="brand_primary">#1A56DB</color>
+    <color name="brand_on_primary">#FFFFFF</color>
+    <color name="brand_primary_container">#DCE4FF</color>
+    <color name="brand_on_primary_container">#00174D</color>
+    <color name="brand_secondary_container">#FFE08A</color>
+    <color name="brand_on_secondary_container">#261A00</color>
+    <color name="brand_background">#F7F8FC</color>
+    <color name="brand_surface_variant">#E1E3EC</color>
+    <color name="brand_progress_track">#FFFFFF</color>
+    <bool name="light_system_bars">true</bool>
+</resources>

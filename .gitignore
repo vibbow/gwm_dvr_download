@@ -1,0 +1,50 @@
+# ---------- 签名密钥（绝对不要提交，请另行备份） ----------
+signing/
+*.keystore
+*.jks
+keystore.properties
+
+# ---------- Gradle / Kotlin ----------
+.gradle/
+.kotlin/
+build/
+local.properties
+# 注意：gradle/wrapper/gradle-wrapper.jar 需要提交，不要忽略 *.jar
+
+# ---------- Android ----------
+*.apk
+*.aab
+*.ap_
+*.dex
+captures/
+.externalNativeBuild/
+.cxx/
+*.hprof
+
+# ---------- 构建产物归档（发布包请放到 GitHub Releases） ----------
+dist/
+
+# ---------- IDE / 编辑器 ----------
+.idea/
+*.iml
+.vscode/
+.fleet/
+
+# ---------- 系统文件 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- Python 工具 ----------
+__pycache__/
+*.pyc
+.venv/
+downloads/
+
+# ---------- 行车记录仪视频等大文件 ----------
+*.mp4
+*.ts
+*.mov
+
+# ---------- 日志 ----------
+*.log

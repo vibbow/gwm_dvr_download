@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 行车记录仪（摄像机）+ 下载角标。镜头和角标外圈用背景色镂空。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M33,36 H57 A5,5 0 0 1 62,41 V57 A5,5 0 0 1 57,62 H33 A5,5 0 0 1 28,57 V41 A5,5 0 0 1 33,36 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M64,43 L78,35 L78,63 L64,55 Z" />
+    <path
+        android:fillColor="@color/ic_launcher_background"
+        android:pathData="M36,49 a9,9 0 1 0 18,0 a9,9 0 1 0 -18,0 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40.5,49 a4.5,4.5 0 1 0 9,0 a4.5,4.5 0 1 0 -9,0 Z" />
+    <path
+        android:fillColor="#FF3B30"
+        android:pathData="M31.5,40.5 a2,2 0 1 0 4,0 a2,2 0 1 0 -4,0 Z" />
+    <path
+        android:fillColor="@color/ic_launcher_background"
+        android:pathData="M53,67 a15,15 0 1 0 30,0 a15,15 0 1 0 -30,0 Z" />
+    <path
+        android:fillColor="#FFB300"
+        android:pathData="M56,67 a12,12 0 1 0 24,0 a12,12 0 1 0 -24,0 Z" />
+    <path
+        android:fillColor="#0B2E7A"
+        android:pathData="M66.5,58.5 H69.5 V65 H73.5 L68,71 L62.5,65 H66.5 Z M62.5,73 H73.5 V75.5 H62.5 Z" />
+</vector>

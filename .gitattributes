@@ -1,0 +1,21 @@
+# 默认按文本处理并自动规范换行
+* text=auto
+
+# Unix 脚本必须是 LF，否则在 Linux 上无法执行
+gradlew text eol=lf
+*.sh    text eol=lf
+*.py    text eol=lf
+
+# Windows 脚本使用 CRLF
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+# 二进制文件
+*.jar      binary
+*.png      binary
+*.jpg      binary
+*.webp     binary
+*.keystore binary
+*.jks      binary
+*.apk      binary
