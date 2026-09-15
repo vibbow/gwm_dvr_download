@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.Outline
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
-import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -153,7 +152,7 @@ class MainActivity : AppCompatActivity() {
                 setStep(2, StepState.ACTIVE)
                 showStatus("等待车机确认", "正在连接行车记录仪 …")
 
-                val c = DashcamClient(network.socketFactory, cfg.host, cfg.port, Build.MODEL, events, MediaStoreSink(applicationContext))
+                val c = DashcamClient(network.socketFactory, cfg.host, cfg.port, DeviceName.value, events, MediaStoreSink(applicationContext))
                 client = c
                 val result = withContext(Dispatchers.IO) { c.run() }
 

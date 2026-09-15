@@ -8,7 +8,7 @@ plugins {
 }
 
 // 显示给用户的版本号，手动修改
-val appVersionName = "1.1"
+val appVersionName = "1.2"
 
 // 每次构建自动递增 versionCode，便于覆盖安装升级：自 2026-01-01 00:00（北京时间）起经过的分钟数
 val autoVersionCode = Duration.between(
