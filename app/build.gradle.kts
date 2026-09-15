@@ -31,7 +31,7 @@ android {
         minSdk = 29 // WifiNetworkSpecifier 和 MediaStore RELATIVE_PATH 都需要 Android 10+
         targetSdk = 36
         versionCode = autoVersionCode
-        versionName = appVersionName
+        versionName = "$appVersionName.$autoVersionCode"
 
         // ML Kit 自带原生库，只保留 64 位 ARM 以减小体积
         ndk {
